@@ -1,22 +1,33 @@
 import React, { useState } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import Profile from 'routes/Profile';
 import Auth from '../routes/Auth';
 import Home from '../routes/Home';
-const AppRouter= ({isLoggedIn}) => {
+import Navigation from './Navigation';
 
-  return (
+const AppRouter = ({ isLoggedIn }) => {
+  return (//&&:navigation이 존재하려면 이것이 true여야 한다.
     <Router>
+     {isLoggedIn && <Navigation/>} 
       <Switch>
-        {isLoggedIn ? (//로그인이 된 상태
+        {isLoggedIn ? ( //로그인이 된 상태
           <>
-            <Route exact path="/">
+            <Route exact path='/'>
               <Home />
             </Route>
+            <Route exact path='/profile'>
+              <Profile />
+            </Route>
+           {/* <Redirect from='*' to="/"/> */}
           </>
-        ) : ( //로그인이 되어있지 않는상태
-          <Route exact path="/">
+        ) : (
+          //로그인이 되어있지 않는상태
+          <>
+          <Route exact path='/'>
             <Auth />
           </Route>
+          {/* <Redirect from='*' to="/"/>    */}
+          </>
         )}
       </Switch>
     </Router>
