@@ -5,7 +5,7 @@ import Auth from '../routes/Auth';
 import Home from '../routes/Home';
 import Navigation from './Navigation';
 
-const AppRouter = ({ isLoggedIn }) => {
+const AppRouter = ({ isLoggedIn,userObj }) => {
   return (//&&:navigation이 존재하려면 이것이 true여야 한다.
     <Router>
      {isLoggedIn && <Navigation/>} 
@@ -13,7 +13,7 @@ const AppRouter = ({ isLoggedIn }) => {
         {isLoggedIn ? ( //로그인이 된 상태
           <>
             <Route exact path='/'>
-              <Home />
+              <Home userObj={userObj} />
             </Route>
             <Route exact path='/profile'>
               <Profile />
