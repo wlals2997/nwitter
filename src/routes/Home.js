@@ -56,7 +56,7 @@ const Home = ({ userObj }) => {
     const { value } = e.target;
     setNweet(value);
   };
-  console.log(nweets);
+ // console.log(nweets);
   return (
     <>
       <form onSubmit={onSubmit}>

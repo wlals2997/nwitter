@@ -13,7 +13,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
     }
   };
   const toggleEditing = () => {
-    setEditing((prev) => !prev);
+    setEditing((prev) => !prev); //수정 여부가 변경된다.
   };
   const onSubmit =async (e) => {
     e.preventDefault();
