@@ -8,6 +8,7 @@ const Profile = ({ userObj,refreshUser }) => {
   const onLogOutClick = () => {
     authService.signOut();
     history.push('/');
+    
   };
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const getMyNweets = async () => {
