@@ -6,6 +6,7 @@ import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 const NweetFactory = ({ userObj }) => {
   //nweets 생성 담당
   const [nweet, setNweet] = useState('');
@@ -90,9 +91,11 @@ const NweetFactory = ({ userObj }) => {
         </div>
         <input className='nweetBtn' type='submit' value='Nweet'></input>
         {attachment && (
-          <div >
+          <div>
             <img src={attachment} width='200px' height='200px' />
-            <button onClick={onClearAttachment}>Clear</button>
+            <button onClick={onClearAttachment}>
+              <FontAwesomeIcon icon={faTrashCan} size='1x' />
+            </button>
           </div>
         )}
       </form>

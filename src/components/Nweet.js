@@ -47,12 +47,12 @@ const Nweet = ({ nweetObj, isOwner }) => {
               required
               onChange={onChange}
             />
-            <input type="submit" value="update"/>
+            <input type="submit" value="update" className='updateBtn'/>
           </form>
-          <button onClick={toggleEditing}>Cancel</button>
+          <button onClick={toggleEditing} className="cancelBtn">Cancel</button>
         </>
       ) : (
-        <>
+        <div className='postingBox'>
           <h4>{nweetObj.text}</h4>
           {nweetObj.attachmentUrl && <img src={nweetObj.attachmentUrl} width="200px" height="200px"/>}
           {isOwner && (
@@ -61,7 +61,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
               <button onClick={toggleEditing} className="postBtn edit">Edit Nweet</button>
             </div>
           )}
-        </>
+        </div>
       )}
     </div>
   );

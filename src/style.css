@@ -16,6 +16,10 @@ input {
 form {
   width: 100%;
 }
+a {
+  text-decoration: none;
+  color: white;
+}
 .container {
   width: 100%;
   max-width: 320px;
@@ -102,8 +106,27 @@ form {
 }
 .imageFile {
   position: absolute;
-  top: 165px;
-  right: 650px;
+  top: 212px;
+  right: 680px;
+}
+.postingBox {
+  border: 2px solid lightblue;
+  padding: 10px;
+  box-shadow: 5px 5px 5px 5px lightgray;
+  border-radius: 20px;
+}
+.updateBtn{
+  background-color: white;
+  border: 1px solid #00acee;
+  padding: 10px;
+  border-radius: 20px;
+}
+.cancelBtn{
+  background-color: black;
+  padding: 10px;
+  border-radius: 20px;
+  color: white;
+  margin-top: 20px;
 }
 /* 포스팅 버튼 */
 .nweetBtn {
@@ -116,9 +139,8 @@ form {
   color: white;
   font-weight: 600;
 }
-.postBtnContainer{
-    margin:20px 0px;
-    
+.postBtnContainer {
+  margin: 20px 0px;
 }
 /* 포스팅 글 삭제,편집 버튼 */
 .postBtn {
@@ -132,10 +154,57 @@ form {
 .delete {
   background-color: black;
   color: white;
-
 }
-.edit{
-    border: 1px solid gray;
-    color: black
+.edit {
+  border: 1px solid gray;
+  color: black;
 }
-
+/* nav */
+.navContainer {
+  margin: 50px 0px;
+}
+.navMenu {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+}
+.navList {
+  margin-right: 20px;
+}
+.profile {
+  font-size: 20px;
+  font-weight: 600;
+}
+/* userProfile변경 */
+.userProfileChange {
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.profileContainer {
+  margin: 20px 0px;
+}
+.profileInput {
+  border: 3px solid #00acee;
+  padding: 20px;
+  border-radius: 20px;
+  margin-right: 20px;
+}
+.profileInputBtn {
+  background-color: gray;
+  padding: 8px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+}
+.logoutBtn {
+  margin: 50px auto;
+  background-color: black;
+  color: white;
+  width: 130px;
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: 500;
+}

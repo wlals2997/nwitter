@@ -37,18 +37,19 @@ const Profile = ({ userObj,refreshUser }) => {
     getMyNweets();
   }, [userObj]);
   return (
-    <>
-      <form onSubmit={onSubmit}>
+    <div className='nwitContainer userProfileChange'>
+      <form onSubmit={onSubmit} className="profileContainer">
         <input
           type='text'
           placeholder='Display Name'
           onChange={onChange}
           value={newDisplayName}
+          className="profileInput"
         />
-        <input type='submit' value='Update Profile' />
+        <input type='submit' value='Update' className='profileInputBtn' />
       </form>
-      <button onClick={onLogOutClick}>Log Out</button>
-    </>
+      <button onClick={onLogOutClick} className="logoutBtn">Log Out</button>
+    </div>
   );
 };
 export default Profile;
