@@ -1,8 +1,10 @@
 import Nweet from 'components/Nweet';
 import NweetFactory from 'components/NweetFactory';
-import { dbService, storageService } from 'fbase';
+import { dbService } from 'fbase';
 import { collection, onSnapshot, query } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
+import { authService } from 'fbase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([]);
@@ -21,7 +23,8 @@ const Home = ({ userObj }) => {
   useEffect(() => {
     //실시간으로 데이터를 데이터베이스에서 가져오기
     const q = query(collection(dbService, 'nweets'));
-    onSnapshot(q, (snapshot) => {
+    const unsubscribe=onSnapshot(q, (snapshot) => {
+      
       const nweetArr = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -29,6 +32,11 @@ const Home = ({ userObj }) => {
       //console.log(nweetArr)
       setNweets(nweetArr);
     });
+   onAuthStateChanged(authService,(user)=>{
+    if(user==null){
+      unsubscribe()
+    }
+   })
   }, []);
 
   return (

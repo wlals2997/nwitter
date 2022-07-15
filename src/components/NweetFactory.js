@@ -15,13 +15,13 @@ const NweetFactory = ({ userObj }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     let attachmentUrl = '';
-    if (attachment != '') {
+    if (attachment !== '') {
       const attachmentRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
-      const response = await uploadString(
-        attachmentRef,
-        attachment,
-        'data_url'
-      );
+      // const response = await uploadString(
+      //   attachmentRef,
+      //   attachment,
+      //   'data_url'
+      // );
       attachmentUrl = await getDownloadURL(ref(storageService, attachmentRef));
     }
 
@@ -59,7 +59,10 @@ const NweetFactory = ({ userObj }) => {
       } = finishedEvent;
       setAttachment(result);
     };
-    reader.readAsDataURL(theFile); //3. readAsDataURL을 사용해서 파일을 읽는다.
+    if(Boolean(theFile)){
+      reader.readAsDataURL(theFile); //3. readAsDataURL을 사용해서 파일을 읽는다.
+    }
+    
   };
   const onClearAttachment = () => {
     setAttachment(null); //첨부파일 url 넣는 state 비워서 프리뷰 img src 없애기
@@ -77,7 +80,7 @@ const NweetFactory = ({ userObj }) => {
             maxLength={120}
             className='factoryInput__container'
           ></input>
-          <label for='input-file'>
+          <label htmlFor='input-file'>
             <FontAwesomeIcon icon={faImage} size='2x' className='imageFile' />
           </label>
           <input

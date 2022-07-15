@@ -1,6 +1,6 @@
 import { authService, dbService } from 'fbase';
 import { updateProfile } from 'firebase/auth';
-import { collection, getDocs, orderBy, query, where } from 'firebase/firestore';
+import { collection, getDocs, query, where,orderBy } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 const Profile = ({ userObj,refreshUser }) => {
@@ -14,8 +14,8 @@ const Profile = ({ userObj,refreshUser }) => {
   const getMyNweets = async () => {
     const q = query(
       collection(dbService, 'nweets'),
-      where('creatorId', '==', `${userObj.uid}`)
-      // orderBy("createdAt","desc")
+      where('creatorId', '==', `${userObj.uid}`),
+      orderBy("createdAt","desc")
     );
     const querySnapshot = await getDocs(q);
     querySnapshot.forEach((doc) => {

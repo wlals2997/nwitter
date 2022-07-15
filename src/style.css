@@ -115,13 +115,13 @@ a {
   box-shadow: 5px 5px 5px 5px lightgray;
   border-radius: 20px;
 }
-.updateBtn{
+.updateBtn {
   background-color: white;
   border: 1px solid #00acee;
   padding: 10px;
   border-radius: 20px;
 }
-.cancelBtn{
+.cancelBtn {
   background-color: black;
   padding: 10px;
   border-radius: 20px;
@@ -171,10 +171,16 @@ a {
 }
 .navList {
   margin-right: 20px;
+ 
 }
 .profile {
   font-size: 20px;
   font-weight: 600;
+  line-height: 30px;
+}
+.userProfile {
+  display: flex;
+  flex-direction: column;
 }
 /* userProfile변경 */
 .userProfileChange {
