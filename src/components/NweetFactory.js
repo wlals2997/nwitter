@@ -17,11 +17,11 @@ const NweetFactory = ({ userObj }) => {
     let attachmentUrl = '';
     if (attachment !== '') {
       const attachmentRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
-      // const response = await uploadString(
-      //   attachmentRef,
-      //   attachment,
-      //   'data_url'
-      // );
+      const response = await uploadString(
+        attachmentRef,
+        attachment,
+        'data_url'
+      );
       attachmentUrl = await getDownloadURL(ref(storageService, attachmentRef));
     }
 
@@ -31,6 +31,7 @@ const NweetFactory = ({ userObj }) => {
       creatorId: userObj.uid,
       attachmentUrl,
     };
+   
     try {
       const docRef = await addDoc(collection(dbService, 'nweets'), nweetObj);
       console.log('Document written with ID: ', docRef.id);
@@ -65,7 +66,7 @@ const NweetFactory = ({ userObj }) => {
     
   };
   const onClearAttachment = () => {
-    setAttachment(null); //첨부파일 url 넣는 state 비워서 프리뷰 img src 없애기
+    setAttachment(""); //첨부파일 url 넣는 state 비워서 프리뷰 img src 없애기
     fileInput.current.value = null; //선택했던 첨부파일명 없애기
   };
   return (

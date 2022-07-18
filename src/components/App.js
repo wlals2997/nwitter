@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AppRouter from './Router';
 //import firebase from 'firebase/compat/app';
 import { authService } from '../fbase';
+import { serverTimestamp } from 'firebase/firestore';
 
 function App() {
   const [init, setIniit] = useState(false);
@@ -14,7 +15,6 @@ function App() {
         setUserObj({
           displayName: user.displayName,
           uid: user.uid,
-
           updateProfile: (args) => user.updateProfile(args),
         });
       } else {
@@ -24,6 +24,7 @@ function App() {
       setIniit(true); //어플리케이션이 언제 시작해도 onAuthStateChanged가 실행되야 한다.
     }); //사용자의 로그인 상태의 변화를 관찰하는 관찰자를 추가시킨다.
   }, []);
+  
   const refreshUser = async () => {
     //fileupdate
     const user = authService.currentUser;

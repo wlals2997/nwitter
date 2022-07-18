@@ -23,31 +23,32 @@ const Home = ({ userObj }) => {
   useEffect(() => {
     //실시간으로 데이터를 데이터베이스에서 가져오기
     const q = query(collection(dbService, 'nweets'));
-    const unsubscribe=onSnapshot(q, (snapshot) => {
-      
+    const unsubscribe = onSnapshot(q, (snapshot) => {
       const nweetArr = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      //console.log(nweetArr)
+
       setNweets(nweetArr);
+      console.log(nweetArr)
     });
-   onAuthStateChanged(authService,(user)=>{
-    if(user==null){
-      unsubscribe()
-    }
-   })
+    onAuthStateChanged(authService, (user) => {
+      if (user == null) {
+        unsubscribe();
+      }
+    });
   }, []);
 
   return (
     <div className='nwitContainer dd'>
-      <NweetFactory userObj={userObj}/>
+      <NweetFactory userObj={userObj} />
       <div>
         {nweets.map((nweet) => (
           <Nweet
             key={nweet.id}
             nweetObj={nweet}
             isOwner={nweet.creatorId === userObj.uid}
+            userObj={userObj}
           />
         ))}
       </div>

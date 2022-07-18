@@ -97,6 +97,9 @@ a {
   padding: 40px;
 }
 /* 포스팅 컨테이너 */
+.nweetUserProfile {
+  margin-right: 10px;
+}
 .factoryInput__container {
   width: 100%;
   border-radius: 10px;
@@ -106,7 +109,7 @@ a {
 }
 .imageFile {
   position: absolute;
-  top: 212px;
+  top: 240px;
   right: 680px;
 }
 .postingBox {
@@ -171,7 +174,6 @@ a {
 }
 .navList {
   margin-right: 20px;
- 
 }
 .profile {
   font-size: 20px;
