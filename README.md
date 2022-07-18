@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Nwitter(노마드코더 트위터 클론코딩)
+> 본 프로젝트는 노마드코더 리액트강의를 공부하며 만든 것입니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+기간 2022.07.22
 
-## Available Scripts
+👉🏼[웹페이지 링크](https://wlals2997.github.io/nwitter)
 
-In the project directory, you can run:
 
-### `npm start`
+#### Skills/Famework
+- React.js(16.13.1)
+- Firebase(v9)
+- React-Redux
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 1. 구현목록
+#### 로그인, 회원가입
+파이어베이스를 연동하여 메서드(signInWithEmailAndPassword)를 사용하여 로그인, 회원가입을 할 수 있도록 하였습니다.
+전용 계정을 만들거나 구글 및 깃헙계정을 연동하여 로그인을 할수도 있습니다.
 
-### `npm run build`
+#### 포스팅
+로그인을 한 유저는 글과 사진을 올릴 수 있습니다.올라간 게시글은 Firestore Document에 작성자, 유저아이디를 저장하게 하였습니다. 그리고 해당 게시글을 삭제, 수정도 가능합니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 닉네임 변경
+로그인한 유저는 프로필에 들어가서 개인적으로 닉네임을 변경할 수 있습니다. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2 설치 및 환경
+#### 2.1 설치
+파일을 폴더에 넣고 코드 편집기를 열어 터미널에 아래와 같은 명령어를 입력해주세요.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`npm install`
+또는
+`yarn add`
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 3 회고 / 느낀점
+부족했던 리액트 부분을 하나씩 채워갔던 시간이었습니다. 특히 백앤드 부분을 파이어베이스를 사용하게 되면서 로그인,회원가입을 간단하게(?)구현해볼 수 있었습니다. 개발을 하면서 파이어베이스가 버전이 업그레이드 되면서 함수사용방식이나 import방식이 많이 바뀌어 하나하나 문서를 찾아가며 코드를 작성하였는데 저 스스로 성장할 수 있었습니다.
+느위터는 계속해서 업그레이드하고 수정할 계획입니다.
+좋아요나 싫어요버튼, 유저 프로필 사진이나 유저의 정보를 마우스가 hover할 시 보일 수 있도록 구현해보려 합니다. 
